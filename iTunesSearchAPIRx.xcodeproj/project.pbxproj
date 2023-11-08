@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		806B7EE12AFB624D0096AD19 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EE02AFB624D0096AD19 /* SearchViewModel.swift */; };
+		806B7EE62AFB62B00096AD19 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EE52AFB62B00096AD19 /* APIManager.swift */; };
 		80E717112AFB5818001AFC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717102AFB5818001AFC24 /* AppDelegate.swift */; };
 		80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717122AFB5818001AFC24 /* SceneDelegate.swift */; };
 		80E717152AFB5818001AFC24 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717142AFB5818001AFC24 /* SearchViewController.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		806B7EE02AFB624D0096AD19 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		806B7EE52AFB62B00096AD19 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		80E7170D2AFB5818001AFC24 /* iTunesSearchAPIRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchAPIRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E717102AFB5818001AFC24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E717122AFB5818001AFC24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +39,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		806B7EE22AFB625C0096AD19 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				806B7EE02AFB624D0096AD19 /* SearchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		806B7EE32AFB62670096AD19 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				80E717142AFB5818001AFC24 /* SearchViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		806B7EE42AFB62750096AD19 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				806B7EE52AFB62B00096AD19 /* APIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		80E717042AFB5818001AFC24 = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +84,9 @@
 			children = (
 				80E717102AFB5818001AFC24 /* AppDelegate.swift */,
 				80E717122AFB5818001AFC24 /* SceneDelegate.swift */,
-				80E717142AFB5818001AFC24 /* SearchViewController.swift */,
+				806B7EE42AFB62750096AD19 /* Network */,
+				806B7EE32AFB62670096AD19 /* ViewControllers */,
+				806B7EE22AFB625C0096AD19 /* ViewModels */,
 				80E717192AFB5819001AFC24 /* Assets.xcassets */,
 				80E7171B2AFB5819001AFC24 /* LaunchScreen.storyboard */,
 				80E7171E2AFB5819001AFC24 /* Info.plist */,
@@ -136,6 +166,8 @@
 			files = (
 				80E717152AFB5818001AFC24 /* SearchViewController.swift in Sources */,
 				80E717112AFB5818001AFC24 /* AppDelegate.swift in Sources */,
+				806B7EE62AFB62B00096AD19 /* APIManager.swift in Sources */,
+				806B7EE12AFB624D0096AD19 /* SearchViewModel.swift in Sources */,
 				80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
