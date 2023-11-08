@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		806B7EE12AFB624D0096AD19 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EE02AFB624D0096AD19 /* SearchViewModel.swift */; };
 		806B7EE62AFB62B00096AD19 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EE52AFB62B00096AD19 /* APIManager.swift */; };
+		806B7EE92AFB63370096AD19 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 806B7EE82AFB63370096AD19 /* RxCocoa */; };
+		806B7EEB2AFB63370096AD19 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 806B7EEA2AFB63370096AD19 /* RxSwift */; };
+		806B7EEE2AFB63610096AD19 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 806B7EED2AFB63610096AD19 /* SnapKit */; };
+		806B7EF12AFB63F20096AD19 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 806B7EF02AFB63F20096AD19 /* Differentiator */; };
+		806B7EF32AFB63F20096AD19 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 806B7EF22AFB63F20096AD19 /* RxDataSources */; };
 		80E717112AFB5818001AFC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717102AFB5818001AFC24 /* AppDelegate.swift */; };
 		80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717122AFB5818001AFC24 /* SceneDelegate.swift */; };
 		80E717152AFB5818001AFC24 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717142AFB5818001AFC24 /* SearchViewController.swift */; };
@@ -33,6 +38,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806B7EF12AFB63F20096AD19 /* Differentiator in Frameworks */,
+				806B7EEE2AFB63610096AD19 /* SnapKit in Frameworks */,
+				806B7EEB2AFB63370096AD19 /* RxSwift in Frameworks */,
+				806B7EF32AFB63F20096AD19 /* RxDataSources in Frameworks */,
+				806B7EE92AFB63370096AD19 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +120,13 @@
 			dependencies = (
 			);
 			name = iTunesSearchAPIRx;
+			packageProductDependencies = (
+				806B7EE82AFB63370096AD19 /* RxCocoa */,
+				806B7EEA2AFB63370096AD19 /* RxSwift */,
+				806B7EED2AFB63610096AD19 /* SnapKit */,
+				806B7EF02AFB63F20096AD19 /* Differentiator */,
+				806B7EF22AFB63F20096AD19 /* RxDataSources */,
+			);
 			productName = iTunesSearchAPIRx;
 			productReference = 80E7170D2AFB5818001AFC24 /* iTunesSearchAPIRx.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +155,11 @@
 				Base,
 			);
 			mainGroup = 80E717042AFB5818001AFC24;
+			packageReferences = (
+				806B7EE72AFB63370096AD19 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				806B7EEC2AFB63610096AD19 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				806B7EEF2AFB63F20096AD19 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+			);
 			productRefGroup = 80E7170E2AFB5818001AFC24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,6 +409,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		806B7EE72AFB63370096AD19 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+		806B7EEC2AFB63610096AD19 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		806B7EEF2AFB63F20096AD19 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		806B7EE82AFB63370096AD19 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 806B7EE72AFB63370096AD19 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		806B7EEA2AFB63370096AD19 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 806B7EE72AFB63370096AD19 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		806B7EED2AFB63610096AD19 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 806B7EEC2AFB63610096AD19 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		806B7EF02AFB63F20096AD19 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 806B7EEF2AFB63F20096AD19 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		806B7EF22AFB63F20096AD19 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 806B7EEF2AFB63F20096AD19 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 80E717052AFB5818001AFC24 /* Project object */;
 }
