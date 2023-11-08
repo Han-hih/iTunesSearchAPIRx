@@ -6,21 +6,32 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 import SnapKit
 
 final class SearchViewController: UIViewController {
-
-   private let searchBar = {
-        let search = UISearchBar()
-        search.placeholder = "게임, 앱, 스토리 등"
-        search.setShowsCancelButton(true, animated: true)
-        return search
+    
+    private let searchController = {
+        let bar = UISearchController(searchResultsController: nil)
+        bar.searchBar.placeholder = "앱, 게임, 스토리 등"
+        return bar
+    }()
+    
+    private let tableView = {
+        let view = UITableView()
+        view.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
+        view.backgroundColor = .lightGray
+        view.rowHeight = 300
+        view.separatorStyle = .none
+        return view
     }()
     
     
+    private let viewModel = SearchViewModel()
     
-   private let viewModel = SearchViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,19 +41,20 @@ final class SearchViewController: UIViewController {
     }
     
     
-   private func navigationSetting() {
+    private func navigationSetting() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "검색"
+        self.navigationItem.searchController = searchController
+        
     }
     
-   private func setUI() {
-        [searchBar].forEach {
-            view.addSubview($0)
-        }
-        searchBar.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-        }
+    private func setUI() {
+        view.addSubview(tableView)
         
+        tableView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
+        }
         
     }
     
