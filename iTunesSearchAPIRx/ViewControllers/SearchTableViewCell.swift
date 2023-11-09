@@ -103,6 +103,7 @@ final class SearchTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUI()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
