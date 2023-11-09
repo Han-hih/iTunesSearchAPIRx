@@ -26,6 +26,8 @@ final class SearchTableViewCell: UITableViewCell {
     let appNameLabel = {
         let label = UILabel()
         label.text = "카카오"
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
     
@@ -33,9 +35,11 @@ final class SearchTableViewCell: UITableViewCell {
         let bt = UIButton()
         bt.setTitle(" 받기 ", for: .normal)
         bt.tintColor = .blue
-        bt.backgroundColor = .gray
-        bt.layer.cornerRadius = 10
+        bt.backgroundColor = .lightGray
+        bt.layer.cornerRadius = 15
         bt.clipsToBounds = true
+        bt.setContentCompressionResistancePriority(.required, for: .horizontal)
+        bt.setTitleColor(.systemBlue, for: .normal)
         return bt
     }()
     
@@ -124,11 +128,13 @@ final class SearchTableViewCell: UITableViewCell {
        appNameLabel.snp.makeConstraints { make in
            make.centerY.equalTo(topView.snp.centerY)
            make.leading.equalTo(appIconView.snp.trailing).offset(10)
-           make.trailing.equalTo(downloadButton).inset(10)
+           make.trailing.equalTo(downloadButton.snp.leading).offset(-10)
        }
        downloadButton.snp.makeConstraints { make in
            make.centerY.equalTo(topView.snp.centerY)
            make.trailing.equalTo(topView.snp.trailing)
+           make.width.equalTo(70)
+           
        }
        
        bottomView.snp.makeConstraints { make in
