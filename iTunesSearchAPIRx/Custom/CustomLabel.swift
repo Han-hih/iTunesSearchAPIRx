@@ -20,6 +20,6 @@ class CustomLabel: UILabel {
     
     private func setLabel() {
         self.textColor = .lightGray
-        self.font = .systemFont(ofSize: 10)
+        self.font = .systemFont(ofSize: 14)
     }
 }

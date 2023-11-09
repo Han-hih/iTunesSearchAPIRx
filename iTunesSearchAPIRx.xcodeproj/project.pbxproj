@@ -15,6 +15,12 @@
 		806B7EF12AFB63F20096AD19 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 806B7EF02AFB63F20096AD19 /* Differentiator */; };
 		806B7EF32AFB63F20096AD19 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 806B7EF22AFB63F20096AD19 /* RxDataSources */; };
 		806B7EF52AFB66E70096AD19 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EF42AFB66E70096AD19 /* NetworkModel.swift */; };
+		806B7EF82AFB82AA0096AD19 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EF72AFB82AA0096AD19 /* Protocols.swift */; };
+		806B7EFB2AFBB72B0096AD19 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EFA2AFBB72B0096AD19 /* SearchTableViewCell.swift */; };
+		806B7EFD2AFBB7710096AD19 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EFC2AFBB7710096AD19 /* ReusableProtocol.swift */; };
+		806B7F002AFBBD120096AD19 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EFF2AFBBD120096AD19 /* CustomLabel.swift */; };
+		806B7F022AFBBEAE0096AD19 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7F012AFBBEAE0096AD19 /* CustomImageView.swift */; };
+		806B7F042AFC68490096AD19 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7F032AFC68490096AD19 /* Extensions.swift */; };
 		80E717112AFB5818001AFC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717102AFB5818001AFC24 /* AppDelegate.swift */; };
 		80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717122AFB5818001AFC24 /* SceneDelegate.swift */; };
 		80E717152AFB5818001AFC24 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717142AFB5818001AFC24 /* SearchViewController.swift */; };
@@ -26,6 +32,12 @@
 		806B7EE02AFB624D0096AD19 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		806B7EE52AFB62B00096AD19 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		806B7EF42AFB66E70096AD19 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		806B7EF72AFB82AA0096AD19 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		806B7EFA2AFBB72B0096AD19 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		806B7EFC2AFBB7710096AD19 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
+		806B7EFF2AFBBD120096AD19 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		806B7F012AFBBEAE0096AD19 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		806B7F032AFC68490096AD19 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		80E7170D2AFB5818001AFC24 /* iTunesSearchAPIRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchAPIRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E717102AFB5818001AFC24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E717122AFB5818001AFC24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				80E717142AFB5818001AFC24 /* SearchViewController.swift */,
+				806B7EFA2AFBB72B0096AD19 /* SearchTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -74,6 +87,32 @@
 				806B7EF42AFB66E70096AD19 /* NetworkModel.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		806B7EF62AFB82910096AD19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				806B7EF72AFB82AA0096AD19 /* Protocols.swift */,
+				806B7EFC2AFBB7710096AD19 /* ReusableProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		806B7EF92AFBB6750096AD19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		806B7EFE2AFBBD050096AD19 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				806B7EFF2AFBBD120096AD19 /* CustomLabel.swift */,
+				806B7F012AFBBEAE0096AD19 /* CustomImageView.swift */,
+				806B7F032AFC68490096AD19 /* Extensions.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		80E717042AFB5818001AFC24 = {
@@ -95,8 +134,11 @@
 		80E7170F2AFB5818001AFC24 /* iTunesSearchAPIRx */ = {
 			isa = PBXGroup;
 			children = (
+				806B7EFE2AFBBD050096AD19 /* Custom */,
 				80E717102AFB5818001AFC24 /* AppDelegate.swift */,
 				80E717122AFB5818001AFC24 /* SceneDelegate.swift */,
+				806B7EF92AFBB6750096AD19 /* Models */,
+				806B7EF62AFB82910096AD19 /* Protocols */,
 				806B7EE42AFB62750096AD19 /* Network */,
 				806B7EE32AFB62670096AD19 /* ViewControllers */,
 				806B7EE22AFB625C0096AD19 /* ViewModels */,
@@ -190,11 +232,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				806B7EF52AFB66E70096AD19 /* NetworkModel.swift in Sources */,
+				806B7F002AFBBD120096AD19 /* CustomLabel.swift in Sources */,
 				80E717152AFB5818001AFC24 /* SearchViewController.swift in Sources */,
+				806B7EF82AFB82AA0096AD19 /* Protocols.swift in Sources */,
 				80E717112AFB5818001AFC24 /* AppDelegate.swift in Sources */,
 				806B7EE62AFB62B00096AD19 /* APIManager.swift in Sources */,
+				806B7EFB2AFBB72B0096AD19 /* SearchTableViewCell.swift in Sources */,
+				806B7F042AFC68490096AD19 /* Extensions.swift in Sources */,
+				806B7F022AFBBEAE0096AD19 /* CustomImageView.swift in Sources */,
 				806B7EE12AFB624D0096AD19 /* SearchViewModel.swift in Sources */,
 				80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */,
+				806B7EFD2AFBB7710096AD19 /* ReusableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
