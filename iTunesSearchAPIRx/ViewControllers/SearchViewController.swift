@@ -22,8 +22,7 @@ final class SearchViewController: UIViewController {
     private let tableView = {
         let view = UITableView()
         view.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
-        view.backgroundColor = .lightGray
-        view.rowHeight = 300
+        view.rowHeight = 350
         view.separatorStyle = .none
         return view
     }()
@@ -38,6 +37,27 @@ final class SearchViewController: UIViewController {
         view.backgroundColor = .white
         navigationSetting()
         setUI()
+        bind()
+    }
+    
+    private func bind() {
+        let input = SearchViewModel.Input(searchButtonTap: searchController.searchBar.rx.searchButtonClicked, searchText: searchController.searchBar.rx.text.orEmpty)
+        
+        let output = viewModel.transform(input: input)
+        output.items
+            .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) { (row, element, cell) in
+                cell.appIconView.load(url: URL(string: element.artworkUrl512)!)
+                cell.rateLabel.text = String(format: "%.1f", element.averageUserRating)
+                cell.appNameLabel.text = element.trackName
+                cell.corpLabel.text = element.artistName
+                cell.genreLabel.text = element.genres[0]
+                cell.firstImageView.load(url: URL(string: element.screenshotUrls[0])!)
+                cell.secondImageView.load(url: URL(string: element.screenshotUrls[1])!)
+                cell.thirdImageView.load(url: URL(string: element.screenshotUrls[2])!)
+                
+            }
+            .disposed(by: disposeBag)
+            
     }
     
     
