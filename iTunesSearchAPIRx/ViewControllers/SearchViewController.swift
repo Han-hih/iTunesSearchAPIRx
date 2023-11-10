@@ -69,6 +69,7 @@ final class SearchViewController: UIViewController {
     private func presentDetail(of items: Results) {
         let vc = DetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationItem.largeTitleDisplayMode = .never
     }
     
     private func navigationSetting() {
