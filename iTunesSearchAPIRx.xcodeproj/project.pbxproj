@@ -21,6 +21,7 @@
 		806B7F002AFBBD120096AD19 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7EFF2AFBBD120096AD19 /* CustomLabel.swift */; };
 		806B7F022AFBBEAE0096AD19 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7F012AFBBEAE0096AD19 /* CustomImageView.swift */; };
 		806B7F042AFC68490096AD19 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7F032AFC68490096AD19 /* Extensions.swift */; };
+		806B7F0F2AFD11660096AD19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7F0E2AFD11660096AD19 /* DetailViewController.swift */; };
 		80E717112AFB5818001AFC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717102AFB5818001AFC24 /* AppDelegate.swift */; };
 		80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717122AFB5818001AFC24 /* SceneDelegate.swift */; };
 		80E717152AFB5818001AFC24 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717142AFB5818001AFC24 /* SearchViewController.swift */; };
@@ -38,6 +39,7 @@
 		806B7EFF2AFBBD120096AD19 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		806B7F012AFBBEAE0096AD19 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		806B7F032AFC68490096AD19 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		806B7F0E2AFD11660096AD19 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		80E7170D2AFB5818001AFC24 /* iTunesSearchAPIRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchAPIRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E717102AFB5818001AFC24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E717122AFB5818001AFC24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				80E717142AFB5818001AFC24 /* SearchViewController.swift */,
 				806B7EFA2AFBB72B0096AD19 /* SearchTableViewCell.swift */,
+				806B7F0E2AFD11660096AD19 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806B7F0F2AFD11660096AD19 /* DetailViewController.swift in Sources */,
 				806B7EF52AFB66E70096AD19 /* NetworkModel.swift in Sources */,
 				806B7F002AFBBD120096AD19 /* CustomLabel.swift in Sources */,
 				80E717152AFB5818001AFC24 /* SearchViewController.swift in Sources */,

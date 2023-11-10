@@ -41,8 +41,7 @@ final class SearchViewController: UIViewController {
     }
     
     private func bind() {
-        let input = SearchViewModel.Input(searchButtonTap: searchController.searchBar.rx.searchButtonClicked, searchText: searchController.searchBar.rx.text.orEmpty)
-        
+        let input = SearchViewModel.Input(searchButtonTap: searchController.searchBar.rx.searchButtonClicked.asObservable(), searchText: searchController.searchBar.rx.text.orEmpty.asObservable())
         let output = viewModel.transform(input: input)
         output.items
             .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) { (row, element, cell) in
@@ -57,7 +56,14 @@ final class SearchViewController: UIViewController {
                 
             }
             .disposed(by: disposeBag)
-            
+//        output.items
+//            .subscribe(with: self) { owner, data in
+//                let vc = DetailViewController()
+//                owner.navigationController?.pushViewController(vc, animated: true)
+//                
+//            }
+//            .disposed(by: disposeBag)
+        
     }
     
     
@@ -70,7 +76,7 @@ final class SearchViewController: UIViewController {
     
     private func setUI() {
         view.addSubview(tableView)
-        
+    
         tableView.snp.makeConstraints { make in
             make.top.bottom.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)

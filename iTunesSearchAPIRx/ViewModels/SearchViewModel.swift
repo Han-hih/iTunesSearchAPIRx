@@ -7,20 +7,20 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
+import RxRelay
 
 class SearchViewModel: ViewModelType {
     
-    let disposeBag = DisposeBag()
+   private let disposeBag = DisposeBag()
     
     struct Input {
-        let searchButtonTap: ControlEvent<Void>
-        let searchText: ControlProperty<String>
+        let searchButtonTap: Observable<Void>
+        let searchText: Observable<String>
+      
     }
     
     struct Output {
         let items: PublishSubject<[results]>
-        
     }
     
     func transform(input: Input) -> Output {
