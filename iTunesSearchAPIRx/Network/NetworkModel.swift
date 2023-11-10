@@ -9,10 +9,10 @@ import Foundation
 
 struct Search: Decodable {
     let resultCount: Int
-    let results: [results]
+    let results: [Results]
 }
 
-struct results: Decodable {
+struct Results: Decodable {
     let artworkUrl512: String //앱 아이콘
     let screenshotUrls: [String] // 스크린샷
     let trackName: String // 앱 이름

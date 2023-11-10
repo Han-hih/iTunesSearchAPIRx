@@ -20,11 +20,11 @@ class SearchViewModel: ViewModelType {
     }
     
     struct Output {
-        let items: PublishSubject<[results]>
+        let items: PublishSubject<[Results]>
     }
     
     func transform(input: Input) -> Output {
-        let appList = PublishSubject<[results]>()
+        let appList = PublishSubject<[Results]>()
         
         input.searchButtonTap
             .withLatestFrom(input.searchText) { _, query in

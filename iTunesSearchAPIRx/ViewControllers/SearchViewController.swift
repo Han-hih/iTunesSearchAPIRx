@@ -57,15 +57,19 @@ final class SearchViewController: UIViewController {
             }
             .disposed(by: disposeBag)
      
-        Observable.zip(tableView.rx.modelSelected(results.self), tableView.rx.itemSelected)
-            .bind(with: self) { owner, value in
-                let vc = DetailViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+        Observable.zip(tableView.rx.modelSelected(Results.self), tableView.rx.itemSelected)
+            .map { $0.0 }
+            .debug()
+            .bind(with: self, onNext: { owner, value in
+                self.presentDetail(of: value)
+            })
             .disposed(by: disposeBag)
     }
     
-    
+    private func presentDetail(of items: Results) {
+        let vc = DetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     private func navigationSetting() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
