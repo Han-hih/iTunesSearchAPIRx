@@ -24,6 +24,3 @@ struct Results: Decodable {
     let genres: [String] // 장르
 }
 
-extension Results {
-    static let empty = Results(artworkUrl512: "", screenshotUrls: [], trackName: "", artistName: "", releaseNotes: "", description: "'", version: "", averageUserRating: 0.0, genres: [])
-}

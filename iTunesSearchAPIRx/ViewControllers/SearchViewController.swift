@@ -59,7 +59,6 @@ final class SearchViewController: UIViewController {
      
         Observable.zip(tableView.rx.modelSelected(Results.self), tableView.rx.itemSelected)
             .map { $0.0 }
-            .debug()
             .bind(with: self, onNext: { owner, value in
                 self.presentDetail(of: value)
             })
@@ -70,6 +69,7 @@ final class SearchViewController: UIViewController {
         let vc = DetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         self.navigationItem.largeTitleDisplayMode = .never
+        vc.items = items
     }
     
     private func navigationSetting() {

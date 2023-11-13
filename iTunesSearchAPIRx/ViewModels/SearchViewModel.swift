@@ -16,7 +16,6 @@ class SearchViewModel: ViewModelType {
     struct Input {
         let searchButtonTap: Observable<Void>
         let searchText: Observable<String>
-      
     }
     
     struct Output {
