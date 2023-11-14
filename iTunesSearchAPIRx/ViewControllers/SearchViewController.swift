@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 import SnapKit
+import Kingfisher
 
 final class SearchViewController: UIViewController {
     
@@ -45,14 +46,18 @@ final class SearchViewController: UIViewController {
         let output = viewModel.transform(input: input)
         output.items
             .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) { (row, element, cell) in
-                cell.appIconView.load(url: URL(string: element.artworkUrl512)!)
                 cell.rateLabel.text = String(format: "%.1f", element.averageUserRating)
                 cell.appNameLabel.text = element.trackName
                 cell.corpLabel.text = element.artistName
                 cell.genreLabel.text = element.genres[0]
-                cell.firstImageView.load(url: URL(string: element.screenshotUrls[0])!)
-                cell.secondImageView.load(url: URL(string: element.screenshotUrls[1])!)
-                cell.thirdImageView.load(url: URL(string: element.screenshotUrls[2])!)
+                
+                cell.appIconView.kf.setImage(with: URL(string: element.artworkUrl512)!)
+                cell.firstImageView.kf.setImage(with: URL(string: element.screenshotUrls[0])!)
+                cell.secondImageView.kf.setImage(with: URL(string: element.screenshotUrls[1])!)
+                cell.thirdImageView.kf.setImage(with: URL(string: element.screenshotUrls[2])!)
+                   
+                
+                
                 
             }
             .disposed(by: disposeBag)
