@@ -28,7 +28,8 @@ final class DetailViewController: UIViewController {
     private func bind() {
         
         appIconImageView.load(url: URL(string: items!.artworkUrl512)!)
-        
+        appNameLabel.text = items?.artistName
+        corpLabel.text = items?.artistName
     }
     
     private func setUI() {
@@ -52,13 +53,29 @@ final class DetailViewController: UIViewController {
             make.height.width.equalTo(topView.snp.height)
         }
         
+        appNameLabel.snp.makeConstraints { make in
+            make.leading.equalTo(appIconImageView.snp.trailing).offset(10)
+            make.top.equalTo(topView.snp.top).offset(20)
+        }
+        
+        corpLabel.snp.makeConstraints { make in
+            make.leading.equalTo(appNameLabel.snp.leading)
+            make.top.equalTo(appNameLabel.snp.bottom).offset(15)
+            
+        }
+        
+        downloadButton.snp.makeConstraints { make in
+            make.leading.equalTo(appNameLabel.snp.leading)
+            make.top.equalTo(corpLabel.snp.bottom).offset(10)
+            make.width.equalTo(70)
+        }
+        
     }
     
     private let scrollView = UIScrollView()
     
     private let topView = {
         let view = UIView()
-        view.backgroundColor = .red
         return view
     }()
     
@@ -75,24 +92,25 @@ final class DetailViewController: UIViewController {
   private let appNameLabel = {
         let label = UILabel()
         label.text = "카카오톡"
+      label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
    private let corpLabel = {
         let label = CustomLabel()
         label.text = "카카오"
+       label.textColor = .lightGray
         return label
     }()
     
    private let downloadButton = {
         let bt = UIButton()
        bt.setTitle(" 받기 ", for: .normal)
-       bt.tintColor = .white
        bt.backgroundColor = .systemBlue
        bt.layer.cornerRadius = 15
        bt.clipsToBounds = true
        bt.setContentCompressionResistancePriority(.required, for: .horizontal)
-       bt.setTitleColor(.systemBlue, for: .normal)
+       bt.setTitleColor(.white, for: .normal)
         return bt
     }()
     

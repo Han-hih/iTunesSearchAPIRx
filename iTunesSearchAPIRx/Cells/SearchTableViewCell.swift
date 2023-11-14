@@ -31,7 +31,7 @@ final class SearchTableViewCell: UITableViewCell {
         return label
     }()
     
-    let downloadButton = {
+   private let downloadButton = {
         let bt = UIButton()
         bt.setTitle(" 받기 ", for: .normal)
         bt.tintColor = .blue
