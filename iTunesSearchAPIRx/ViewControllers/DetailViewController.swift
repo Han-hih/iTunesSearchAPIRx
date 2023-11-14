@@ -22,7 +22,7 @@ final class DetailViewController: UIViewController {
         view.backgroundColor = .white
         bind()
         setUI()
-//        print(viewModel.selectedItems)
+        print(items?.releaseNotes)
     }
     
     private func bind() {
@@ -30,10 +30,12 @@ final class DetailViewController: UIViewController {
         appIconImageView.load(url: URL(string: items!.artworkUrl512)!)
         appNameLabel.text = items?.artistName
         corpLabel.text = items?.artistName
+        versionLabel.text = "버전 \(items?.version ?? "0.0")"
+        updateNewLabel.text = items?.releaseNotes
     }
     
     private func setUI() {
-        [scrollView ,topView, appIconImageView, appNameLabel, corpLabel, downloadButton].forEach {
+        [scrollView ,topView, appIconImageView, appNameLabel, corpLabel, downloadButton, middleView, newLabel, versionLabel, updateNewLabel].forEach {
             view.addSubview($0)
         }
         
@@ -70,6 +72,27 @@ final class DetailViewController: UIViewController {
             make.width.equalTo(70)
         }
         
+        middleView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(topView.snp.horizontalEdges)
+            make.top.equalTo(topView.snp.bottom).offset(30)
+            make.height.greaterThanOrEqualTo(100)
+            make.bottom.equalTo(updateNewLabel.snp.bottom)
+        }
+        
+        newLabel.snp.makeConstraints { make in
+            make.leading.equalTo(middleView.snp.leading)
+            make.top.equalTo(middleView.snp.top)
+        }
+        
+        versionLabel.snp.makeConstraints { make in
+            make.leading.equalTo(middleView.snp.leading)
+            make.top.equalTo(newLabel.snp.bottom).offset(10)
+        }
+        
+        updateNewLabel.snp.makeConstraints { make in
+            make.leading.equalTo(middleView.snp.leading)
+            make.top.equalTo(versionLabel.snp.bottom).offset(20)
+        }
     }
     
     private let scrollView = UIScrollView()
@@ -114,5 +137,29 @@ final class DetailViewController: UIViewController {
         return bt
     }()
     
-  
+    private lazy var middleView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let newLabel = {
+        let label = UILabel()
+        label.text = "새로운 소식"
+        label.font = .boldSystemFont(ofSize: 30)
+        
+        return label
+    }()
+    
+    private let versionLabel = {
+        let label = UILabel()
+        label.textColor = .lightGray
+        return label
+    }()
+    
+    private let updateNewLabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        return label
+    }()
+    
 }
