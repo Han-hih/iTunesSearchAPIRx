@@ -9,6 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+import Kingfisher
+
 final class DetailViewController: UIViewController {
     
     private let viewModel = SearchViewModel()
@@ -22,7 +24,6 @@ final class DetailViewController: UIViewController {
         view.backgroundColor = .white
         bind()
         setUI()
-        print(items?.releaseNotes)
     }
     
     private func bind() {
@@ -32,21 +33,31 @@ final class DetailViewController: UIViewController {
         corpLabel.text = items?.artistName
         versionLabel.text = "버전 \(items?.version ?? "0.0")"
         updateNewLabel.text = items?.releaseNotes
+        descriptionLabel.text = items?.description
     }
     
     private func setUI() {
-        [scrollView ,topView, appIconImageView, appNameLabel, corpLabel, downloadButton, middleView, newLabel, versionLabel, updateNewLabel].forEach {
-            view.addSubview($0)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        [topView, appIconImageView, appNameLabel, corpLabel, downloadButton, middleView, newLabel, versionLabel, updateNewLabel, screenShotCollectionView, descriptionLabel].forEach {
+            contentView.addSubview($0)
         }
         
+        scrollView.bounces = false
         scrollView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
-            make.bottom.equalTo(view.snp.bottom)
+            make.edges.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.height.greaterThanOrEqualTo(view.snp.height)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(scrollView.contentLayoutGuide)
+            make.bottom.equalTo(scrollView.contentLayoutGuide).inset(20)
+            make.width.equalTo(scrollView.frameLayoutGuide)
         }
         
         topView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalTo(scrollView.safeAreaLayoutGuide)
-            make.height.equalTo(view.snp.height).multipliedBy(0.13)
+            make.top.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
+            make.height.equalTo(170)
         }
         
         appIconImageView.snp.makeConstraints { make in
@@ -93,9 +104,23 @@ final class DetailViewController: UIViewController {
             make.leading.equalTo(middleView.snp.leading)
             make.top.equalTo(versionLabel.snp.bottom).offset(20)
         }
+        
+        screenShotCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(middleView.snp.bottom).offset(30)
+            make.horizontalEdges.equalTo(topView.snp.horizontalEdges)
+            make.height.equalTo(300)
+        }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(screenShotCollectionView.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(topView.snp.horizontalEdges)
+            make.bottom.equalTo(contentView.snp.bottom).inset(-20)
+        }
     }
     
-    private let scrollView = UIScrollView()
+    private lazy var scrollView = UIScrollView()
+    
+    private let contentView = UIView()
     
     private let topView = {
         let view = UIView()
@@ -161,5 +186,24 @@ final class DetailViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
+
+    private let screenShotCollectionView = {
+      
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+        view.backgroundColor = .blue
+        
+        
+        
+        return view
+    }()
     
+    private let descriptionLabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        return label
+    }()
 }

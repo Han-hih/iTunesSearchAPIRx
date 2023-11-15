@@ -55,10 +55,6 @@ final class SearchViewController: UIViewController {
                 cell.firstImageView.kf.setImage(with: URL(string: element.screenshotUrls[0])!)
                 cell.secondImageView.kf.setImage(with: URL(string: element.screenshotUrls[1])!)
                 cell.thirdImageView.kf.setImage(with: URL(string: element.screenshotUrls[2])!)
-                   
-                
-                
-                
             }
             .disposed(by: disposeBag)
      
