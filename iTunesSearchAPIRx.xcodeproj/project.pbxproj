@@ -23,6 +23,7 @@
 		806B7F042AFC68490096AD19 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7F032AFC68490096AD19 /* Extensions.swift */; };
 		806B7F0F2AFD11660096AD19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B7F0E2AFD11660096AD19 /* DetailViewController.swift */; };
 		809DB7722B03AEB6007DC15D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 809DB7712B03AEB6007DC15D /* Kingfisher */; };
+		80C993A22B04DF000043F629 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C993A12B04DF000043F629 /* DetailViewModel.swift */; };
 		80DADF772AFE8A4F00803E0C /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DADF762AFE8A4F00803E0C /* DetailCollectionViewCell.swift */; };
 		80E717112AFB5818001AFC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717102AFB5818001AFC24 /* AppDelegate.swift */; };
 		80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E717122AFB5818001AFC24 /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 		806B7F012AFBBEAE0096AD19 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		806B7F032AFC68490096AD19 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		806B7F0E2AFD11660096AD19 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		80C993A12B04DF000043F629 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		80DADF762AFE8A4F00803E0C /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		80E7170D2AFB5818001AFC24 /* iTunesSearchAPIRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchAPIRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E717102AFB5818001AFC24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				806B7EE02AFB624D0096AD19 /* SearchViewModel.swift */,
+				80C993A12B04DF000043F629 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				806B7F022AFBBEAE0096AD19 /* CustomImageView.swift in Sources */,
 				806B7EE12AFB624D0096AD19 /* SearchViewModel.swift in Sources */,
 				80E717132AFB5818001AFC24 /* SceneDelegate.swift in Sources */,
+				80C993A22B04DF000043F629 /* DetailViewModel.swift in Sources */,
 				806B7EFD2AFBB7710096AD19 /* ReusableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
