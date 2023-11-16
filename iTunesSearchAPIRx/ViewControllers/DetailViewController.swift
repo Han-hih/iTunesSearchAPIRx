@@ -12,28 +12,42 @@ import RxCocoa
 import Kingfisher
 
 final class DetailViewController: UIViewController {
-    
-    private let viewModel = SearchViewModel()
+
+     let viewModel = DetailViewModel()
     
     private let disposeBag = DisposeBag()
-    
-    var items: Results?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        bind()
+        
         setUI()
+        bind()
     }
     
     private func bind() {
         
-        appIconImageView.load(url: URL(string: items!.artworkUrl512)!)
-        appNameLabel.text = items?.artistName
-        corpLabel.text = items?.artistName
-        versionLabel.text = "버전 \(items?.version ?? "0.0")"
-        updateNewLabel.text = items?.releaseNotes
-        descriptionLabel.text = items?.description
+        let output = viewModel.transform()
+
+        output.outputselected
+            .compactMap{ $0 }
+            .bind(with: self) { owner, value in
+                owner.appIconImageView.kf.setImage(with: URL(string: value.artworkUrl512))
+                owner.appNameLabel.text = value.trackName
+                owner.corpLabel.text = value.artistName
+                owner.versionLabel.text = "버전 \(value.version)"
+                owner.updateNewLabel.text = value.releaseNotes
+                owner.descriptionLabel.text = value.description
+            }
+            .disposed(by: disposeBag)
+        
+        output.outputselected
+            .compactMap { $0?.screenshotUrls }
+            .bind(to: screenShotCollectionView.rx.items(cellIdentifier: DetailCollectionViewCell.identifier, cellType: DetailCollectionViewCell.self)) { row, element, cell in
+                cell.screenshots.kf.setImage(with: URL(string: element))
+            }
+            .disposed(by: disposeBag)
+        
     }
     
     private func setUI() {
@@ -57,7 +71,7 @@ final class DetailViewController: UIViewController {
         
         topView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
-            make.height.equalTo(170)
+            make.height.equalTo(130)
         }
         
         appIconImageView.snp.makeConstraints { make in
@@ -108,7 +122,7 @@ final class DetailViewController: UIViewController {
         screenShotCollectionView.snp.makeConstraints { make in
             make.top.equalTo(middleView.snp.bottom).offset(30)
             make.horizontalEdges.equalTo(topView.snp.horizontalEdges)
-            make.height.equalTo(300)
+            make.height.equalTo(400)
         }
         
         descriptionLabel.snp.makeConstraints { make in
@@ -118,7 +132,7 @@ final class DetailViewController: UIViewController {
         }
     }
     
-    private lazy var scrollView = UIScrollView()
+    private let scrollView = UIScrollView()
     
     private let contentView = UIView()
     
@@ -188,13 +202,18 @@ final class DetailViewController: UIViewController {
     }()
 
     private let screenShotCollectionView = {
-      
+       
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.itemSize = CGSize(width: 250, height: 400)
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
-        view.backgroundColor = .blue
+        view.bounces = false
+        view.showsHorizontalScrollIndicator = false
+   
+        
         
         
         
